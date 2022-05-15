@@ -24,7 +24,7 @@ TEST_CASE("add two matrixes") // check A+B and A+=B
     Matrix a = Matrix(arr1, 3, 3);
     Matrix b = Matrix(arr2, 3, 3);
     Matrix c = Matrix(arr3, 1, 3);
-
+    
     CHECK_THROWS(a+c);
     CHECK_THROWS(b+c);
     
@@ -37,7 +37,7 @@ TEST_CASE("add two matrixes") // check A+B and A+=B
     size_t i=0;
     size_t j=0;
     
-    for(i=0; i<3; i++)
+    for(i=0; i<3; i++)  //check all cells in res mat
     {
         for(j=0; j<3; j++)
         {
@@ -49,7 +49,7 @@ TEST_CASE("add two matrixes") // check A+B and A+=B
     {
         for(j=0; j<3; j++)
         {
-            CHECK(d.mat[i][j] != a.mat[i][j] + b.mat[i][j]);
+            CHECK_FALSE(d.mat[i][j] != a.mat[i][j] + b.mat[i][j]);
         }
     }
 
@@ -105,7 +105,7 @@ TEST_CASE("sub two matrixes")   // check A-B and A-=B
     {
         for(j=0; j<3; j++)
         {
-            CHECK(d.mat[i][j] != a.mat[i][j] - b.mat[i][j]);
+            CHECK_FALSE(d.mat[i][j] != a.mat[i][j] - b.mat[i][j]);
         }
     }
 
@@ -164,7 +164,7 @@ TEST_CASE("check ++ and --")
     {
         for(j=0; j<3; j++)
         {
-            CHECK(a.mat[i][j] == b.mat[i][j] - 1);
+            CHECK_FALSE(a.mat[i][j] == b.mat[i][j] - 1);
         }
     }
 
@@ -173,7 +173,7 @@ TEST_CASE("check ++ and --")
     {
         for(j=0; j<3; j++)
         {
-            CHECK(a.mat[i][j] == b.mat[i][j] - 2);
+            CHECK_FALSE(a.mat[i][j] == b.mat[i][j] - 2);
         }
     }
 }
